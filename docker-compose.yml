@@ -1,0 +1,16 @@
+services:
+  sharptools-bridge:
+    image: ghcr.io/sharptools-io/bridge:alpha
+    container_name: sharptools-bridge
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      SHARPTOOLS_BRIDGE_HOME: /data
+      SHARPTOOLS_BRIDGE_HOST: 0.0.0.0
+      SHARPTOOLS_BRIDGE_PORT: "8787"
+      SHARPTOOLS_BRIDGE_UPDATE_CHANNEL: alpha
+    volumes:
+      - sharptools-bridge-data:/data
+
+volumes:
+  sharptools-bridge-data:
